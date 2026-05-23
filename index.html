@@ -8,6 +8,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
+    /* ============================================ */
+    /* CHANGE YOUR IMAGE PATHS HERE - ONE PLACE     */
+    /* ============================================ */
+    
+    :root {
+      --img-bg: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      --img-logo: url('images/logo.png');
+      --img-footer-logo: url('images/logo-small.png');
+      --img-gallery-1: url('images/gallery/facade.jpg');
+      --img-gallery-2: url('images/gallery/lounge.jpg');
+      --img-gallery-3: url('images/gallery/dining.jpg');
+      --img-gallery-4: url('images/gallery/suite.jpg');
+      --img-room-1: url('images/rooms/signature-room.jpg');
+      --img-room-2: url('images/rooms/executive-room.jpg');
+      --img-room-3: url('images/rooms/deluxe-room.jpg');
+      --img-room-4: url('images/rooms/premium-room.jpg');
+      --img-room-5: url('images/rooms/luxury-room.jpg');
+      --img-map: url('images/map-location.jpg');
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -20,7 +40,6 @@
       overflow-x: hidden;
     }
 
-    /* SINGLE BACKGROUND IMAGE FOR ALL SECTIONS */
     .fixed-bg {
       position: fixed;
       top: 0;
@@ -28,7 +47,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-image: var(--img-bg);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -67,7 +86,6 @@
     ::-webkit-scrollbar-track { background: #1a2a3a; border-radius: 10px; }
     ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
 
-    /* Premium Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -89,23 +107,21 @@
       cursor: pointer;
     }
     
-    /* LOGO IMAGE PLACEHOLDER */
     .logo-image {
       width: 48px;
       height: 48px;
       background: rgba(212, 175, 55, 0.15);
-      border: 2px dashed #d4af37;
-      border-radius: 14px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      position: relative;
     }
-    .logo-image i {
-      font-size: 1.6rem;
-      color: #d4af37;
-      opacity: 0.6;
+    .logo-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     
     .logo-text {
@@ -140,9 +156,7 @@
       background: #d4af37;
       transition: width 0.3s ease;
     }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
     .nav-links a:hover { color: #d4af37; }
     .book-cta { 
       background: #d4af37; 
@@ -152,12 +166,8 @@
       font-weight: 700; 
       letter-spacing: 1.5px;
     }
-    .book-cta:hover { 
-      background: #e8c44a; 
-      transform: scale(1.05); 
-    }
+    .book-cta:hover { background: #e8c44a; transform: scale(1.05); }
 
-    /* Hamburger Menu */
     .hamburger {
       display: none;
       width: 32px;
@@ -174,17 +184,10 @@
       background: #d4af37;
       margin: 6px 0;
       transition: all 0.3s ease;
-      border-radius: 2px;
     }
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
     .mobile-menu {
       position: fixed;
@@ -199,7 +202,7 @@
       display: flex;
       flex-direction: column;
       padding: 7rem 2rem 2rem;
-      transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: right 0.4s ease;
       border-left: 1px solid rgba(212, 175, 55, 0.3);
     }
     .mobile-menu.active { right: 0; }
@@ -209,14 +212,10 @@
       font-size: 1rem;
       padding: 1rem 0;
       border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-      transition: 0.3s;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-    .mobile-menu a:hover { 
-      color: #d4af37; 
-      padding-left: 12px;
-    }
+    .mobile-menu a:hover { color: #d4af37; padding-left: 12px; }
     .close-menu {
       position: absolute;
       top: 1.8rem;
@@ -235,25 +234,9 @@
       text-align: center;
     }
     .hero-content { max-width: 850px; padding: 0 5%; z-index: 2; }
-    .hero-content h1 { 
-      font-size: 5rem; 
-      margin-bottom: 1rem; 
-      color: #e8e4df; 
-      text-shadow: 0 2px 30px rgba(0,0,0,0.4);
-    }
-    .hero-content p { 
-      font-size: 1rem; 
-      max-width: 550px; 
-      margin: 0 auto; 
-      opacity: 0.8; 
-      line-height: 1.8;
-    }
-    .divider { 
-      width: 70px; 
-      height: 2px; 
-      background: linear-gradient(90deg, transparent, #d4af37, #d4af37, transparent);
-      margin: 1.5rem auto; 
-    }
+    .hero-content h1 { font-size: 5rem; margin-bottom: 1rem; color: #e8e4df; text-shadow: 0 2px 30px rgba(0,0,0,0.4); }
+    .hero-content p { font-size: 1rem; max-width: 550px; margin: 0 auto; opacity: 0.8; line-height: 1.8; }
+    .divider { width: 70px; height: 2px; background: #d4af37; margin: 1.5rem auto; }
     .btn-primary {
       background: #d4af37;
       border: none;
@@ -264,31 +247,23 @@
       color: #0a1620;
       cursor: pointer;
       border-radius: 50px;
-      transition: all 0.3s ease;
     }
-    .btn-primary:hover { 
-      background: #e8c44a; 
-      transform: translateY(-3px); 
-    }
+    .btn-primary:hover { background: #e8c44a; transform: translateY(-3px); }
 
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     section { padding: 100px 5%; }
     .section-title { text-align: center; font-size: 3.2rem; margin-bottom: 0.5rem; color: #e8e4df; }
     .section-sub { text-align: center; color: #d4af37; letter-spacing: 5px; font-size: 0.7rem; margin-bottom: 3.5rem; text-transform: uppercase; }
 
-    /* Gallery Swiper */
     .gallery-swiper { width: 100%; max-width: 1300px; margin: 0 auto; border-radius: 28px; overflow: hidden; }
     .gallery-slide { height: 580px; border-radius: 28px; overflow: hidden; }
-    .gallery-placeholder {
-      width: 100%; height: 100%; background: rgba(20, 35, 50, 0.8);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
-      border: 2px dashed #d4af37;
-      border-radius: 28px;
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .gallery-placeholder i { font-size: 4rem; color: #d4af37; opacity: 0.5; }
-    .gallery-placeholder p { color: #d4af37; letter-spacing: 3px; }
     .gallery-swiper .swiper-button-next, .gallery-swiper .swiper-button-prev { 
       color: #d4af37; 
       background: rgba(0,0,0,0.5); 
@@ -296,12 +271,17 @@
       height: 50px; 
       border-radius: 50%;
     }
+    .gallery-swiper .swiper-pagination-bullet { background: #e8e4df; opacity: 0.5; }
+    .gallery-swiper .swiper-pagination-bullet-active { background: #d4af37; opacity: 1; width: 28px; border-radius: 10px; }
 
-    /* Amenities Slider - ONE SLIDE AT A TIME */
     .amenities-swiper { width: 100%; max-width: 1000px; margin: 0 auto; border-radius: 32px; overflow: hidden; }
     .amenity-slide {
-      background: rgba(20, 35, 50, 0.85); backdrop-filter: blur(12px); padding: 3rem 2.5rem; text-align: center;
-      border-radius: 32px; border: 1px solid rgba(212, 175, 55, 0.25);
+      background: rgba(20, 35, 50, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 3rem 2.5rem;
+      text-align: center;
+      border-radius: 32px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
     }
     .amenity-slide i { font-size: 3.5rem; color: #d4af37; margin-bottom: 1.2rem; }
     .amenity-slide h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #e8e4df; }
@@ -313,12 +293,9 @@
       height: 48px; 
       border-radius: 50%;
     }
+    .amenities-swiper .swiper-pagination-bullet { background: #e8e4df; opacity: 0.5; }
+    .amenities-swiper .swiper-pagination-bullet-active { background: #d4af37; opacity: 1; width: 28px; border-radius: 10px; }
 
-    /* ============================================ */
-    /* ROOMS SECTION - ENLARGED IMAGE SPACES       */
-    /* Each room image takes 50% of card width     */
-    /* Minimum height 500px for large photos       */
-    /* ============================================ */
     .rooms-container { max-width: 1400px; margin: 0 auto; }
     .room-wrapper { margin-bottom: 5rem; }
     
@@ -332,56 +309,22 @@
       border: 1px solid rgba(212, 175, 55, 0.2);
       transition: all 0.4s ease;
     }
-    .room-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212, 175, 55, 0.5);
-      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.5);
-    }
+    .room-card:hover { transform: translateY(-6px); border-color: rgba(212, 175, 55, 0.5); }
     
-    /* ENLARGED IMAGE BOX - takes 50% width, minimum 500px height */
     .room-image-box {
       flex: 1;
       min-width: 45%;
-      min-height: 500px;
-      background: rgba(10, 25, 38, 0.9);
+      min-height: 480px;
       overflow: hidden;
       position: relative;
     }
-    
-    /* IMAGE CONTAINER - fits the entire box perfectly */
-    .room-image-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    /* For actual images - uncomment and use */
-    .room-image-container img {
+    .room-image-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
-    .room-card:hover .room-image-container img {
-      transform: scale(1.05);
-    }
-    
-    /* Placeholder styling (visible until you add images) */
-    .image-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #0d1f2d 0%, #0a1620 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      border: 2px dashed #d4af37;
-      min-height: 500px;
-    }
-    .image-placeholder i { font-size: 4rem; color: #d4af37; opacity: 0.4; }
-    .image-placeholder span { font-size: 0.8rem; color: #d4af37; letter-spacing: 3px; }
+    .room-card:hover .room-image-box img { transform: scale(1.05); }
     
     .room-content-box {
       flex: 1;
@@ -424,35 +367,32 @@
       width: fit-content;
       transition: all 0.3s ease;
     }
-    .btn-book:hover {
-      background: #d4af37;
-      color: #0a1620;
-      transform: translateX(6px);
-    }
+    .btn-book:hover { background: #d4af37; color: #0a1620; transform: translateX(6px); }
     
-    /* Alternating Layouts */
     .room-layout-left { flex-direction: row; }
     .room-layout-right { flex-direction: row-reverse; }
 
-    /* Review Card */
     .review-card {
-      max-width: 850px; margin: 2rem auto; background: rgba(15, 30, 45, 0.85); backdrop-filter: blur(10px);
+      max-width: 850px; margin: 2rem auto; background: rgba(15, 30, 45, 0.85);
       padding: 3rem; text-align: center; border-radius: 40px; border: 1px solid rgba(212, 175, 55, 0.25);
     }
     .stars { color: #d4af37; letter-spacing: 6px; font-size: 1.2rem; margin-bottom: 1rem; }
-    .review-text { font-size: 1.05rem; font-style: italic; line-height: 1.7; color: #c5d5e4; margin: 1rem 0; }
+    .review-text { font-size: 1.05rem; font-style: italic; line-height: 1.7; color: #c5d5e4; }
 
-    /* Location */
     .location-box {
-      display: flex; flex-wrap: wrap; gap: 2rem; background: rgba(15, 30, 45, 0.85); backdrop-filter: blur(10px);
+      display: flex; flex-wrap: wrap; gap: 2rem; background: rgba(15, 30, 45, 0.85);
       border-radius: 32px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.25);
     }
-    .map-placeholder { 
-      flex: 1; min-height: 400px; background: rgba(10, 25, 38, 0.9); 
-      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;
-      border: 2px dashed #d4af37;
+    .map-image {
+      flex: 1;
+      min-height: 400px;
+      overflow: hidden;
     }
-    .map-placeholder i { font-size: 3rem; color: #d4af37; opacity: 0.5; }
+    .map-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .address { flex: 1; padding: 2.5rem; }
     .btn-outline {
       background: transparent; border: 1.5px solid #d4af37; padding: 0.8rem 2rem; font-size: 0.7rem;
@@ -462,7 +402,6 @@
 
     footer {
       background: rgba(8, 14, 21, 0.95);
-      backdrop-filter: blur(10px);
       padding: 3rem 5%;
       text-align: center;
       border-top: 1px solid rgba(212, 175, 55, 0.2);
@@ -474,17 +413,22 @@
       gap: 0.8rem;
       margin-bottom: 1rem;
     }
-    .footer-logo-placeholder {
+    .footer-logo-image {
       width: 45px;
       height: 45px;
-      background: rgba(212, 175, 55, 0.12);
-      border: 2px dashed #d4af37;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
-    .footer-logo-placeholder i { font-size: 1.3rem; color: #d4af37; opacity: 0.6; }
+    .footer-logo-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .socials i { font-size: 1.2rem; margin: 0 14px; color: #d4af37; transition: 0.3s; cursor: pointer; }
     .socials i:hover { color: #e8c44a; transform: translateY(-3px); }
     
@@ -492,15 +436,14 @@
       .nav-links { display: none; }
       .hamburger { display: block; }
       .room-layout-left, .room-layout-right { flex-direction: column; }
-      .room-image-box { min-height: 350px; width: 100%; }
-      .image-placeholder { min-height: 350px; }
+      .room-image-box { min-height: 300px; width: 100%; }
       .room-content-box { padding: 1.8rem; }
       .room-title { font-size: 1.8rem; }
       .hero-content h1 { font-size: 2.8rem; }
       .section-title { font-size: 2.2rem; }
       .gallery-slide { height: 380px; }
-      .hero { height: 90vh; min-height: 550px; }
       section { padding: 60px 5%; }
+      .map-image { min-height: 280px; }
     }
   </style>
 </head>
@@ -510,10 +453,8 @@
 
 <nav>
   <div class="logo-container">
-    <!-- 📍 IMAGE INSERTION POINT #1: LOGO IMAGE -->
     <div class="logo-image">
-      <i class="fas fa-crown"></i>
-      <!-- REPLACE WITH YOUR LOGO: <img src="images/logo.png" alt="Kelnessa Hotel Logo" style="width:100%; height:100%; object-fit:cover;"> -->
+      <img src="images/logo.png" alt="Kelnessa Hotel Logo">
     </div>
     <div class="logo-text">KELNESSA <span>HOTEL</span></div>
   </div>
@@ -544,7 +485,6 @@
   <a href="#booking">RESERVE</a>
 </div>
 
-<!-- Hero -->
 <div id="home" class="hero">
   <div class="hero-content reveal">
     <h1>KELNESSA HOTEL</h1>
@@ -561,32 +501,16 @@
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide gallery-slide">
-        <div class="gallery-placeholder">
-          <i class="fas fa-building"></i>
-          <p>HOTEL FAÇADE</p>
-          <!-- 📍 IMAGE INSERTION POINT #2: HOTEL FAÇADE -->
-        </div>
+        <img src="images/facade.webp" alt="Hotel Façade">
       </div>
       <div class="swiper-slide gallery-slide">
-        <div class="gallery-placeholder">
-          <i class="fas fa-couch"></i>
-          <p>LOUNGE BAR</p>
-          <!-- 📍 IMAGE INSERTION POINT #3: LOUNGE BAR -->
-        </div>
+        <img src="images/lounge.webp" alt="Lounge Bar">
       </div>
       <div class="swiper-slide gallery-slide">
-        <div class="gallery-placeholder">
-          <i class="fas fa-utensils"></i>
-          <p>PRIVATE DINING</p>
-          <!-- 📍 IMAGE INSERTION POINT #4: PRIVATE DINING -->
-        </div>
+        <img src="images/dining.webp" alt="Private Dining">
       </div>
       <div class="swiper-slide gallery-slide">
-        <div class="gallery-placeholder">
-          <i class="fas fa-bed"></i>
-          <p>EXECUTIVE SUITE</p>
-          <!-- 📍 IMAGE INSERTION POINT #5: EXECUTIVE SUITE -->
-        </div>
+        <img src="images/esuite.webp" alt="Luxury Suite">
       </div>
     </div>
     <div class="swiper-button-next"></div>
@@ -595,28 +519,16 @@
   </div>
 </section>
 
-<!-- ROOMS SECTION - ENLARGED IMAGE SPACES -->
+<!-- ROOMS SECTION -->
 <section id="rooms">
   <div class="section-title reveal">Chambers</div>
   <div class="section-sub reveal">WHERE STILLNESS RESIDES</div>
   <div class="rooms-container">
     
-    <!-- ROOM 1: SIGNATURE ROOM - IMAGE LEFT -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <!-- 📍 IMAGE INSERTION POINT #6: SIGNATURE ROOM PHOTO -->
-          <!-- REPLACE the placeholder div below with your image -->
-          <div class="image-placeholder">
-            <i class="fas fa-crown"></i>
-            <span>SIGNATURE ROOM</span>
-            <p style="font-size:0.7rem; margin-top:0.5rem;">images/signature.webp</p>
-          </div>
-          <!-- WHEN YOU HAVE YOUR IMAGE, REPLACE ABOVE WITH:
-          <div class="room-image-container">
-            <img src="images/signature-room.jpg" alt="Signature Room">
-          </div>
-          -->
+          <img src="images/signature.webp" alt="Signature Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Signature Room</h3>
@@ -633,16 +545,10 @@
       </div>
     </div>
 
-    <!-- ROOM 2: EXECUTIVE ROOM - IMAGE RIGHT -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
         <div class="room-image-box">
-          <!-- 📍 IMAGE INSERTION POINT #7: EXECUTIVE ROOM PHOTO -->
-          <div class="image-placeholder">
-            <i class="fas fa-briefcase"></i>
-            <span>EXECUTIVE ROOM</span>
-            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
-          </div>
+          <img src="images/executive.webp" alt="Executive Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Executive Room</h3>
@@ -659,16 +565,10 @@
       </div>
     </div>
 
-    <!-- ROOM 3: DELUXE ROOM - IMAGE LEFT -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <!-- 📍 IMAGE INSERTION POINT #8: DELUXE ROOM PHOTO -->
-          <div class="image-placeholder">
-            <i class="fas fa-home"></i>
-            <span>DELUXE ROOM</span>
-            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
-          </div>
+          <img src="images/deluxe.webp" alt="Deluxe Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Deluxe Room</h3>
@@ -685,16 +585,10 @@
       </div>
     </div>
 
-    <!-- ROOM 4: PREMIUM ROOM - IMAGE RIGHT -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
         <div class="room-image-box">
-          <!-- 📍 IMAGE INSERTION POINT #9: PREMIUM ROOM PHOTO -->
-          <div class="image-placeholder">
-            <i class="fas fa-star"></i>
-            <span>PREMIUM ROOM</span>
-            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
-          </div>
+          <img src="images/premium.webp" alt="Premium Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Premium Room</h3>
@@ -711,16 +605,10 @@
       </div>
     </div>
 
-    <!-- ROOM 5: LUXURY ROOM - IMAGE LEFT -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <!-- 📍 IMAGE INSERTION POINT #10: LUXURY ROOM PHOTO -->
-          <div class="image-placeholder">
-            <i class="fas fa-gem"></i>
-            <span>LUXURY ROOM</span>
-            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
-          </div>
+          <img src="images/luxury.webp" alt="Luxury Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Luxury Room</h3>
@@ -739,7 +627,7 @@
   </div>
 </section>
 
-<!-- Amenities Slider -->
+<!-- AMENITIES SLIDER -->
 <section id="amenities">
   <div class="section-title reveal">Silent Luxuries</div>
   <div class="section-sub reveal">CRAFTED FOR THE FEW</div>
@@ -757,7 +645,7 @@
   </div>
 </section>
 
-<!-- Review -->
+<!-- REVIEW -->
 <section id="review">
   <div class="section-title reveal">Whispers</div>
   <div class="section-sub reveal">VERIFIED GUESTS</div>
@@ -770,15 +658,13 @@
   <div style="text-align:center; margin-top:1.5rem;"><i class="fas fa-check-circle" style="color:#d4af37;"></i> <span>100% recommendation rate</span></div>
 </section>
 
-<!-- Location -->
+<!-- LOCATION SECTION -->
 <section id="location">
   <div class="section-title reveal">Arrival</div>
   <div class="section-sub reveal">AHANSONYEWODEA, AGYA NSIAH, OBUASI</div>
   <div class="location-box reveal">
-    <div class="map-placeholder">
-      <i class="fas fa-map-marker-alt"></i>
-      <p>MAP / AERIAL VIEW</p>
-      <!-- 📍 IMAGE INSERTION POINT #11: MAP OR AERIAL PHOTO -->
+    <div class="map-image">
+      <img src="images/map.webp" alt="Hotel Location">
     </div>
     <div class="address">
       <h3 style="font-size:1.8rem; color:#e8e4df;">A Hidden Throne</h3>
@@ -788,7 +674,7 @@
   </div>
 </section>
 
-<!-- Booking -->
+<!-- BOOKING -->
 <section id="booking" style="text-align:center;">
   <div class="section-title reveal">Reserve Silence</div>
   <div class="section-sub reveal">LIMITED SUITES AVAILABLE</div>
@@ -798,9 +684,8 @@
 
 <footer>
   <div class="footer-logo">
-    <div class="footer-logo-placeholder">
-      <i class="fas fa-crown"></i>
-      <!-- 📍 IMAGE INSERTION POINT #12: FOOTER LOGO -->
+    <div class="footer-logo-image">
+      <img src="images/logo.png" alt="Kelnessa Hotel Logo">
     </div>
     <div class="logo-text" style="font-size:1.4rem;">KELNESSA <span>HOTEL</span></div>
   </div>
@@ -830,9 +715,7 @@
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('active');
     });
   }, { threshold: 0.15 });
   reveals.forEach(el => observer.observe(el));
@@ -845,12 +728,10 @@
     hamburger.classList.toggle('active');
     mobileMenu.classList.toggle('active');
   });
-  
   closeMenu.addEventListener('click', () => {
     hamburger.classList.remove('active');
     mobileMenu.classList.remove('active');
   });
-  
   document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
