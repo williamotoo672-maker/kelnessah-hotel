@@ -20,23 +20,7 @@
       overflow-x: hidden;
     }
 
-    /* IMAGE CONFIGURATION - CHANGE THESE PATHS */
-    :root {
-      --img-bg: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      --img-logo: url('images/logo.png');
-      --img-footer-logo: url('images/logo.png');
-      --img-gallery-1: url('images/facade.webp');
-      --img-gallery-2: url('images/lounge.webp');
-      --img-gallery-3: url('images/dinning.webp');
-      --img-gallery-4: url('images/esuit.webp');
-      --img-room-1: url('images/signature.webp');
-      --img-room-2: url('images/executive.webp');
-      --img-room-3: url('images/deluxe.webp');
-      --img-room-4: url('images/premium.webp');
-      --img-room-5: url('images/luxury.webp');
-      --img-map: url('images/map.png');
-    }
-
+    /* BACKGROUND IMAGE - CHANGE THIS URL */
     .fixed-bg {
       position: fixed;
       top: 0;
@@ -44,7 +28,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background-image: var(--img-bg);
+      background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -374,9 +358,7 @@
     }
     .btn-outline:hover { background: #d4af37; color: #0a1620; }
 
-    /* ============================================ */
-    /* BOOKING MODAL - ONLY SHOWS WHEN CLICKING BOOK */
-    /* ============================================ */
+    /* BOOKING MODAL */
     .booking-modal {
       display: none;
       position: fixed;
@@ -516,20 +498,6 @@
       box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
     }
     
-    .nights-display {
-      background: rgba(212, 175, 55, 0.1);
-      border-radius: 12px;
-      padding: 0.8rem 1rem;
-      text-align: center;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-    }
-    
-    .nights-display span {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #d4af37;
-    }
-    
     .booking-summary {
       background: rgba(10, 22, 32, 0.6);
       border-radius: 16px;
@@ -625,6 +593,11 @@
 
 <nav>
   <div class="logo-container">
+    <!-- ========================================== -->
+    <!-- 📍 IMAGE 1: NAVIGATION LOGO                 -->
+    <!-- Replace 'images/logo.png' with your logo   -->
+    <!-- Example: 'https://yourwebsite.com/logo.png'-->
+    <!-- ========================================== -->
     <div class="logo-image">
       <img src="images/logo.png" alt="Kelnessa Hotel Logo">
     </div>
@@ -666,16 +639,31 @@
   </div>
 </div>
 
-<!-- GALLERY SECTION -->
+<!-- ========================================== -->
+<!-- GALLERY SECTION - 4 IMAGES                -->
+<!-- Replace each image URL with your own      -->
+<!-- ========================================== -->
 <section id="gallery">
   <div class="section-title reveal">The Estate</div>
   <div class="section-sub reveal">VISUAL CHRONICLES</div>
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide gallery-slide"><img src="images/gallery/facade.jpg" alt="Hotel Façade"></div>
-      <div class="swiper-slide gallery-slide"><img src="images/gallery/lounge.jpg" alt="Lounge Bar"></div>
-      <div class="swiper-slide gallery-slide"><img src="images/gallery/dining.jpg" alt="Private Dining"></div>
-      <div class="swiper-slide gallery-slide"><img src="images/gallery/suite.jpg" alt="Luxury Suite"></div>
+      <!-- 📍 IMAGE 2: HOTEL FAÇADE -->
+      <div class="swiper-slide gallery-slide">
+        <img src="images/facade.webp" alt="Hotel Façade">
+      </div>
+      <!-- 📍 IMAGE 3: LOUNGE BAR -->
+      <div class="swiper-slide gallery-slide">
+        <img src="images/lounge.webp" alt="Lounge Bar">
+      </div>
+      <!-- 📍 IMAGE 4: PRIVATE DINING -->
+      <div class="swiper-slide gallery-slide">
+        <img src="images/dinning.webp" alt="Private Dining">
+      </div>
+      <!-- 📍 IMAGE 5: LUXURY SUITE -->
+      <div class="swiper-slide gallery-slide">
+        <img src="images/esuite.webp" alt="Luxury Suite">
+      </div>
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
@@ -683,14 +671,21 @@
   </div>
 </section>
 
-<!-- ROOMS SECTION -->
+<!-- ========================================== -->
+<!-- ROOMS SECTION - 5 ROOM IMAGES             -->
+<!-- Replace each image URL with your own      -->
+<!-- ========================================== -->
 <section id="rooms">
   <div class="section-title reveal">Chambers</div>
   <div class="section-sub reveal">WHERE STILLNESS RESIDES</div>
   <div class="rooms-container">
+    
+    <!-- 📍 IMAGE 6: SIGNATURE ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
-        <div class="room-image-box"><img src="images/rooms/signature-room.jpg" alt="Signature Room"></div>
+        <div class="room-image-box">
+          <img src="images/signature.webp" alt="Signature Room">
+        </div>
         <div class="room-content-box">
           <h3 class="room-title">Signature Room</h3>
           <div class="amenities">
@@ -705,9 +700,13 @@
         </div>
       </div>
     </div>
+
+    <!-- 📍 IMAGE 7: EXECUTIVE ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
-        <div class="room-image-box"><img src="images/rooms/executive-room.jpg" alt="Executive Room"></div>
+        <div class="room-image-box">
+          <img src="images/executive.webp" alt="Executive Room">
+        </div>
         <div class="room-content-box">
           <h3 class="room-title">Executive Room</h3>
           <div class="amenities">
@@ -722,9 +721,13 @@
         </div>
       </div>
     </div>
+
+    <!-- 📍 IMAGE 8: DELUXE ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
-        <div class="room-image-box"><img src="images/rooms/deluxe-room.jpg" alt="Deluxe Room"></div>
+        <div class="room-image-box">
+          <img src="images/deluxe.webp" alt="Deluxe Room">
+        </div>
         <div class="room-content-box">
           <h3 class="room-title">Deluxe Room</h3>
           <div class="amenities">
@@ -739,9 +742,13 @@
         </div>
       </div>
     </div>
+
+    <!-- 📍 IMAGE 9: PREMIUM ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
-        <div class="room-image-box"><img src="images/rooms/premium-room.jpg" alt="Premium Room"></div>
+        <div class="room-image-box">
+          <img src="images/premium.webp" alt="Premium Room">
+        </div>
         <div class="room-content-box">
           <h3 class="room-title">Premium Room</h3>
           <div class="amenities">
@@ -756,9 +763,13 @@
         </div>
       </div>
     </div>
+
+    <!-- 📍 IMAGE 10: LUXURY ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
-        <div class="room-image-box"><img src="images/rooms/luxury-room.jpg" alt="Luxury Room"></div>
+        <div class="room-image-box">
+          <img src="images/luxury.webp" alt="Luxury Room">
+        </div>
         <div class="room-content-box">
           <h3 class="room-title">Luxury Room</h3>
           <div class="amenities">
@@ -807,12 +818,18 @@
   <div style="text-align:center; margin-top:1.5rem;"><i class="fas fa-check-circle" style="color:#d4af37;"></i> <span>100% recommendation rate</span></div>
 </section>
 
-<!-- LOCATION SECTION -->
+<!-- ========================================== -->
+<!-- LOCATION SECTION - MAP IMAGE              -->
+<!-- Replace the image URL with your own       -->
+<!-- ========================================== -->
 <section id="location">
   <div class="section-title reveal">Arrival</div>
   <div class="section-sub reveal">AHANSONYEWODEA, AGYA NSIAH, OBUASI</div>
   <div class="location-box reveal">
-    <div class="map-image"><img src="images/map-location.jpg" alt="Hotel Location"></div>
+    <!-- 📍 IMAGE 11: MAP OR AERIAL VIEW -->
+    <div class="map-image">
+      <img src="images/map.png" alt="Hotel Location">
+    </div>
     <div class="address">
       <h3 style="font-size:1.8rem; color:#e8e4df;">A Hidden Throne</h3>
       <p style="margin:1rem 0; line-height:1.6; color:#c5d5e4;">Nestled in the serene hills of Ahansonyewodea — far from noise, close to the soul of Obuasi. Private transfers upon request.</p>
@@ -821,9 +838,7 @@
   </div>
 </section>
 
-<!-- ============================================ -->
-<!-- BOOKING MODAL - ONLY APPEARS WHEN BOOKING     -->
-<!-- ============================================ -->
+<!-- BOOKING MODAL -->
 <div class="booking-modal" id="bookingModal">
   <div class="modal-content">
     <div class="modal-header">
@@ -833,7 +848,6 @@
     </div>
     
     <form class="booking-form" id="bookingForm">
-      <!-- STAY DETAILS SECTION -->
       <div class="form-section">
         <div class="form-section-title">
           <i class="fas fa-hotel"></i>
@@ -845,14 +859,28 @@
             <input type="date" id="checkin" name="checkin" required>
           </div>
           <div class="form-group">
-            <label><i class="fas fa-calendar-times"></i> Check-out Date</label>
-            <input type="date" id="checkout" name="checkout" required>
+            <label><i class="fas fa-moon"></i> Number of Nights</label>
+            <select id="nights" name="nights" required>
+              <option value="1">1 Night</option>
+              <option value="2" selected>2 Nights</option>
+              <option value="3">3 Nights</option>
+              <option value="4">4 Nights</option>
+              <option value="5">5 Nights</option>
+              <option value="6">6 Nights</option>
+              <option value="7">7 Nights</option>
+              <option value="8">8 Nights</option>
+              <option value="9">9 Nights</option>
+              <option value="10">10 Nights</option>
+              <option value="11">11 Nights</option>
+              <option value="12">12 Nights</option>
+              <option value="13">13 Nights</option>
+              <option value="14">14 Nights</option>
+              <option value="15">15+ Nights</option>
+            </select>
           </div>
           <div class="form-group">
-            <label><i class="fas fa-moon"></i> Number of Nights</label>
-            <div class="nights-display" id="nightsDisplay">
-              <span id="nightCount">0</span> nights
-            </div>
+            <label><i class="fas fa-calendar-times"></i> Check-out Date (Auto-calculated)</label>
+            <input type="text" id="checkout" name="checkout" readonly style="background: rgba(10, 22, 32, 0.5); cursor: not-allowed;">
           </div>
           <div class="form-group">
             <label><i class="fas fa-user"></i> Number of Adults</label>
@@ -915,7 +943,6 @@
         </div>
       </div>
 
-      <!-- GUEST INFORMATION SECTION -->
       <div class="form-section">
         <div class="form-section-title">
           <i class="fas fa-user-circle"></i>
@@ -941,7 +968,6 @@
         </div>
       </div>
 
-      <!-- BOOKING SUMMARY -->
       <div class="booking-summary" id="bookingSummary">
         <p><i class="fas fa-info-circle"></i> Your booking summary will appear here</p>
       </div>
@@ -955,7 +981,10 @@
 
 <footer>
   <div class="footer-logo">
-    <div class="footer-logo-image"><img src="images/logo-small.png" alt="Kelnessa Hotel Logo"></div>
+    <!-- 📍 IMAGE 12: FOOTER LOGO -->
+    <div class="footer-logo-image">
+      <img src="images/logo.png" alt="Kelnessa Hotel Logo">
+    </div>
     <div class="logo-text" style="font-size:1.4rem;">KELNESSA <span>HOTEL</span></div>
   </div>
   <p style="margin:0.5rem 0; opacity:0.6;">Serenity carved in silence.</p>
@@ -1031,20 +1060,54 @@
   const closeModalBtn = document.getElementById('closeModalBtn');
   const roomBookBtns = document.querySelectorAll('.room-book-btn');
   
-  // Form elements
   const checkinInput = document.getElementById('checkin');
-  const checkoutInput = document.getElementById('checkout');
-  const nightCountSpan = document.getElementById('nightCount');
+  const nightsSelect = document.getElementById('nights');
+  const checkoutDisplay = document.getElementById('checkout');
   const bookingSummary = document.getElementById('bookingSummary');
   const bookingForm = document.getElementById('bookingForm');
   const roomTypeSelect = document.getElementById('roomType');
   
-  // Open modal function
+  function calculateCheckoutDate() {
+    const checkinDate = new Date(checkinInput.value);
+    const nights = parseInt(nightsSelect.value);
+    
+    if (checkinDate && nights > 0) {
+      const checkoutDate = new Date(checkinDate);
+      checkoutDate.setDate(checkinDate.getDate() + nights);
+      const year = checkoutDate.getFullYear();
+      const month = String(checkoutDate.getMonth() + 1).padStart(2, '0');
+      const day = String(checkoutDate.getDate()).padStart(2, '0');
+      checkoutDisplay.value = `${year}-${month}-${day}`;
+      return checkoutDisplay.value;
+    }
+    return '';
+  }
+  
+  function updateBookingSummary() {
+    const checkin = checkinInput.value;
+    const nights = nightsSelect.value;
+    const checkout = checkoutDisplay.value;
+    const adults = document.getElementById('adults').value;
+    const children = document.getElementById('children').value;
+    const rooms = document.getElementById('rooms').value;
+    const roomType = document.getElementById('roomType').value;
+    const smoking = document.getElementById('smoking').value;
+    const bedPreference = document.getElementById('bedPreference').value;
+    
+    if (checkin && nights > 0) {
+      bookingSummary.innerHTML = `
+        <p><i class="fas fa-calendar-check"></i> <strong>Stay Summary:</strong> ${nights} night(s) | Check-in: ${checkin} | Check-out: ${checkout}</p>
+        <p><i class="fas fa-users"></i> <strong>Guests:</strong> ${adults} Adult(s) | ${children} Child(ren) | ${rooms} Room(s)</p>
+        <p><i class="fas fa-bed"></i> <strong>Room:</strong> ${roomType} | ${smoking} | ${bedPreference} Bed</p>
+      `;
+    } else {
+      bookingSummary.innerHTML = `<p><i class="fas fa-info-circle"></i> Select your stay details to see booking summary.</p>`;
+    }
+  }
+  
   function openModal(roomName = null) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    
-    // If a specific room was clicked, pre-select it
     if (roomName) {
       for (let i = 0; i < roomTypeSelect.options.length; i++) {
         if (roomTypeSelect.options[i].value === roomName) {
@@ -1053,16 +1116,15 @@
         }
       }
     }
+    calculateCheckoutDate();
     updateBookingSummary();
   }
   
-  // Close modal function
   function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
   
-  // Add event listeners to open buttons
   openModalBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -1070,7 +1132,6 @@
     });
   });
   
-  // Add event listeners to room book buttons
   roomBookBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -1079,101 +1140,40 @@
     });
   });
   
-  // Close modal on X click
   closeModalBtn.addEventListener('click', closeModal);
-  
-  // Close modal when clicking outside the modal content
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
+    if (e.target === modal) closeModal();
   });
   
-  // Calculate nights between two dates
-  function calculateNights() {
-    const checkin = new Date(checkinInput.value);
-    const checkout = new Date(checkoutInput.value);
-    
-    if (checkin && checkout && checkout > checkin) {
-      const diffTime = Math.abs(checkout - checkin);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      nightCountSpan.textContent = diffDays;
-      return diffDays;
-    } else if (checkin && checkout && checkout <= checkin) {
-      nightCountSpan.textContent = '0';
-      return 0;
-    }
-    return 0;
-  }
-  
-  // Update booking summary
-  function updateBookingSummary() {
-    const checkin = checkinInput.value;
-    const checkout = checkoutInput.value;
-    const nights = calculateNights();
-    const adults = document.getElementById('adults').value;
-    const children = document.getElementById('children').value;
-    const rooms = document.getElementById('rooms').value;
-    const roomType = document.getElementById('roomType').value;
-    const smoking = document.getElementById('smoking').value;
-    const bedPreference = document.getElementById('bedPreference').value;
-    
-    if (checkin && checkout && nights > 0) {
-      bookingSummary.innerHTML = `
-        <p><i class="fas fa-calendar-check"></i> <strong>Stay Summary:</strong> ${nights} night(s) | ${adults} Adult(s) | ${children} Child(ren) | ${rooms} Room(s)</p>
-        <p><i class="fas fa-bed"></i> <strong>Room:</strong> ${roomType} | ${smoking} | ${bedPreference} Bed</p>
-      `;
-    } else if (checkin && checkout && nights === 0) {
-      bookingSummary.innerHTML = `<p><i class="fas fa-exclamation-triangle"></i> Please select a check-out date after your check-in date.</p>`;
-    } else {
-      bookingSummary.innerHTML = `<p><i class="fas fa-info-circle"></i> Select your dates to see booking summary.</p>`;
-    }
-  }
-  
-  // Event listeners for date inputs
   checkinInput.addEventListener('change', () => {
-    calculateNights();
+    calculateCheckoutDate();
     updateBookingSummary();
   });
-  checkoutInput.addEventListener('change', () => {
-    calculateNights();
+  nightsSelect.addEventListener('change', () => {
+    calculateCheckoutDate();
     updateBookingSummary();
   });
   
-  // Event listeners for other form fields
   ['adults', 'children', 'rooms', 'roomType', 'smoking', 'bedPreference'].forEach(id => {
     const element = document.getElementById(id);
-    if (element) {
-      element.addEventListener('change', updateBookingSummary);
-    }
+    if (element) element.addEventListener('change', updateBookingSummary);
   });
   
-  // Set minimum date to today
   const today = new Date().toISOString().split('T')[0];
   checkinInput.min = today;
-  checkoutInput.min = today;
-  
-  // Set default dates (today and tomorrow)
   checkinInput.value = today;
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  checkoutInput.value = tomorrow.toISOString().split('T')[0];
-  
-  // Initial calculation
-  calculateNights();
+  calculateCheckoutDate();
   updateBookingSummary();
   
-  // Form submission
   bookingForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    const nights = calculateNights();
+    const nights = nightsSelect.value;
     const fullname = document.getElementById('fullname').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const nationality = document.getElementById('nationality').value;
     const checkin = checkinInput.value;
-    const checkout = checkoutInput.value;
+    const checkout = checkoutDisplay.value;
     const adults = document.getElementById('adults').value;
     const children = document.getElementById('children').value;
     const rooms = document.getElementById('rooms').value;
@@ -1181,32 +1181,30 @@
     const smoking = document.getElementById('smoking').value;
     const bedPreference = document.getElementById('bedPreference').value;
     
-    // Validate required fields
     if (!fullname || !email || !phone || !nationality) {
       alert('Please fill in all required fields: Full Name, Email, Phone Number, and Nationality');
       return;
     }
     
-    if (nights === 0) {
-      alert('Please select valid check-in and check-out dates');
+    if (!checkin || nights === '0') {
+      alert('Please select valid check-in date and number of nights');
       return;
     }
     
-    // Create booking message
     const bookingMessage = `KELNESSA HOTEL BOOKING REQUEST
     
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STAY DETAILS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Check-in: ${checkin}
-Check-out: ${checkout}
-Nights: ${nights}
-Adults: ${adults}
-Children: ${children}
-Rooms: ${rooms}
+Check-in Date: ${checkin}
+Check-out Date: ${checkout}
+Number of Nights: ${nights}
+Number of Adults: ${adults}
+Number of Children: ${children}
+Number of Rooms: ${rooms}
 Room Type: ${roomType}
 Smoking Preference: ${smoking}
-Bed Preference: ${bedPreference} Bed
+Bed Preference: ${bedPreference}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 GUEST INFORMATION
@@ -1221,20 +1219,20 @@ Thank you for choosing Kelnessa Hotel.
 We will contact you shortly to confirm your reservation.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
     
-    // Create email link
-    const subject = encodeURIComponent(`Booking Request - ${fullname} - ${roomType}`);
+    const subject = encodeURIComponent(`Booking Request - ${fullname} - ${roomType} - ${nights} nights`);
     const body = encodeURIComponent(bookingMessage);
     window.location.href = `mailto:williamotoo672@gmail.com?subject=${subject}&body=${body}`;
     
-    // Show confirmation and close modal
     alert(`Thank you ${fullname}! Your booking request has been sent. We will contact you within 24 hours to confirm your reservation at Kelnessa Hotel.`);
     closeModal();
     
-    // Reset form
     bookingForm.reset();
     checkinInput.value = today;
-    checkoutInput.value = tomorrow.toISOString().split('T')[0];
-    calculateNights();
+    nightsSelect.value = '2';
+    document.getElementById('adults').value = '2';
+    document.getElementById('children').value = '0';
+    document.getElementById('rooms').value = '1';
+    calculateCheckoutDate();
     updateBookingSummary();
   });
 </script>
