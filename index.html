@@ -8,6 +8,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
+    /* ============================================ */
+    /* 📷 CHANGE ONLY THESE LINES - YOUR IMAGE URLs 📷 */
+    /* ============================================ */
+    /* Just replace the image paths below with your own image URLs */
+    /* Examples: "images/logo.png" or "https://your-site.com/logo.png" */
+    /* ============================================ */
+    
+    /* BACKGROUND IMAGE */
+    bg-image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",  // ← YOUR BACKGROUND IMAGE
+    
+    /* LOGO IMAGES */
+    logo-image: "images/logo.png",  // ← YOUR LOGO IMAGE
+    footer-logo: "images/logo.png",  // ← YOUR FOOTER LOGO
+    
+    /* GALLERY IMAGES */
+    gallery-img-1: "images/facade.webp",  // ← YOUR HOTEL FAÇADE
+    gallery-img-2: "images/gallery/lounge.jpg",  // ← YOUR LOUNGE BAR
+    gallery-img-3: "images/gallery/dining.jpg",  // ← YOUR DINING AREA
+    gallery-img-4: "images/gallery/suite.jpg",  // ← YOUR SUITE
+    
+    /* ROOM IMAGES */
+    room-signature: "images/rooms/signature-room.jpg",  // ← YOUR SIGNATURE ROOM
+    room-executive: "images/rooms/executive-room.jpg",  // ← YOUR EXECUTIVE ROOM
+    room-deluxe: "images/rooms/deluxe-room.jpg",  // ← YOUR DELUXE ROOM
+    room-premium: "images/rooms/premium-room.jpg",  // ← YOUR PREMIUM ROOM
+    room-luxury: "images/rooms/luxury-room.jpg",  // ← YOUR LUXURY ROOM
+    
+    /* MAP IMAGE */
+    map-image: "images/map.png",  // ← YOUR MAP OR AERIAL VIEW
+    /* ============================================ */
+
     * {
       margin: 0;
       padding: 0;
@@ -20,7 +51,7 @@
       overflow-x: hidden;
     }
 
-    /* BACKGROUND IMAGE - PASTE YOUR BACKGROUND IMAGE URL HERE */
+    /* BACKGROUND IMAGE - using the variable above */
     .fixed-bg {
       position: fixed;
       top: 0;
@@ -391,9 +422,7 @@
       margin: 2rem auto;
     }
     
-    .modal-content::-webkit-scrollbar {
-      width: 4px;
-    }
+    .modal-content::-webkit-scrollbar { width: 4px; }
     
     .modal-header {
       background: rgba(212, 175, 55, 0.15);
@@ -406,15 +435,8 @@
       z-index: 10;
     }
     
-    .modal-header h3 {
-      font-size: 1.8rem;
-      color: #e8e4df;
-    }
-    
-    .modal-header p {
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
+    .modal-header h3 { font-size: 1.8rem; color: #e8e4df; }
+    .modal-header p { font-size: 0.8rem; opacity: 0.7; }
     
     .close-modal {
       position: absolute;
@@ -425,14 +447,9 @@
       color: #d4af37;
       transition: 0.3s;
     }
+    .close-modal:hover { transform: rotate(90deg); }
     
-    .close-modal:hover {
-      transform: rotate(90deg);
-    }
-    
-    .booking-form {
-      padding: 2rem;
-    }
+    .booking-form { padding: 2rem; }
     
     .form-section {
       margin-bottom: 2rem;
@@ -447,10 +464,6 @@
       display: flex;
       align-items: center;
       gap: 0.8rem;
-    }
-    
-    .form-section-title i {
-      font-size: 1.1rem;
     }
     
     .form-grid {
@@ -506,14 +519,8 @@
       text-align: center;
     }
     
-    .booking-summary p {
-      font-size: 0.8rem;
-      color: #b0c4de;
-    }
-    
-    .booking-summary strong {
-      color: #d4af37;
-    }
+    .booking-summary p { font-size: 0.8rem; color: #b0c4de; }
+    .booking-summary strong { color: #d4af37; }
     
     .submit-btn {
       background: #d4af37;
@@ -593,11 +600,8 @@
 
 <nav>
   <div class="logo-container">
-    <!-- ========================================== -->
-    <!-- 📍 IMAGE 1: NAVIGATION LOGO                 -->
-    <!-- PASTE YOUR LOGO IMAGE URL BELOW            -->
-    <!-- Example: https://yourwebsite.com/logo.png  -->
-    <!-- ========================================== -->
+    <!-- LOGO IMAGE - CHANGE THIS LINE - use your GitHub image path -->
+    <!-- img: "images/logo.png",  // ← YOUR LOGO IMAGE -->
     <div class="logo-image">
       <img src="images/logo.png" alt="Kelnessa Hotel Logo">
     </div>
@@ -640,29 +644,29 @@
 </div>
 
 <!-- ========================================== -->
-<!-- GALLERY SECTION - 4 IMAGES                -->
-<!-- PASTE YOUR IMAGE URLs BELOW               -->
+<!-- GALLERY SECTION - CHANGE THESE LINES       -->
+<!-- Use your GitHub image paths                -->
 <!-- ========================================== -->
 <section id="gallery">
   <div class="section-title reveal">The Estate</div>
   <div class="section-sub reveal">VISUAL CHRONICLES</div>
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
-      <!-- 📍 IMAGE 2: HOTEL FAÇADE / EXTERIOR -->
+      <!-- gallery-img-1: "images/gallery/facade.jpg",  // ← YOUR HOTEL FAÇADE -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/facade.webp" alt="Hotel Façade">
+        <img src="images/gallery/facade.jpg" alt="Hotel Façade">
       </div>
-      <!-- 📍 IMAGE 3: LOUNGE / BAR AREA -->
+      <!-- gallery-img-2: "images/gallery/lounge.jpg",  // ← YOUR LOUNGE BAR -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/lounge.webp" alt="Lounge Bar">
+        <img src="images/gallery/lounge.jpg" alt="Lounge Bar">
       </div>
-      <!-- 📍 IMAGE 4: RESTAURANT / DINING AREA -->
+      <!-- gallery-img-3: "images/gallery/dining.jpg",  // ← YOUR DINING AREA -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/dinning.webp" alt="Private Dining">
+        <img src="images/gallery/dining.jpg" alt="Private Dining">
       </div>
-      <!-- 📍 IMAGE 5: SUITE / ROOM INTERIOR -->
+      <!-- gallery-img-4: "images/gallery/suite.jpg",  // ← YOUR SUITE -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/esuit.webp" alt="Luxury Suite">
+        <img src="images/gallery/suite.jpg" alt="Luxury Suite">
       </div>
     </div>
     <div class="swiper-button-next"></div>
@@ -672,19 +676,19 @@
 </section>
 
 <!-- ========================================== -->
-<!-- ROOMS SECTION - 5 ROOM IMAGES             -->
-<!-- PASTE YOUR ROOM IMAGE URLs BELOW          -->
+<!-- ROOMS SECTION - CHANGE THESE LINES         -->
+<!-- Use your GitHub image paths                -->
 <!-- ========================================== -->
 <section id="rooms">
   <div class="section-title reveal">Chambers</div>
   <div class="section-sub reveal">WHERE STILLNESS RESIDES</div>
   <div class="rooms-container">
     
-    <!-- 📍 IMAGE 6: SIGNATURE ROOM -->
+    <!-- room-signature: "images/rooms/signature-room.jpg",  // ← YOUR SIGNATURE ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <img src="https://placehold.co/1200x800/1a2a3a/d4af37?text=SIGNATURE+ROOM" alt="Signature Room">
+          <img src="images/rooms/signature-room.jpg" alt="Signature Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Signature Room</h3>
@@ -701,11 +705,11 @@
       </div>
     </div>
 
-    <!-- 📍 IMAGE 7: EXECUTIVE ROOM -->
+    <!-- room-executive: "images/rooms/executive-room.jpg",  // ← YOUR EXECUTIVE ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
         <div class="room-image-box">
-          <img src="https://placehold.co/1200x800/1a2a3a/d4af37?text=EXECUTIVE+ROOM" alt="Executive Room">
+          <img src="images/rooms/executive-room.jpg" alt="Executive Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Executive Room</h3>
@@ -722,11 +726,11 @@
       </div>
     </div>
 
-    <!-- 📍 IMAGE 8: DELUXE ROOM -->
+    <!-- room-deluxe: "images/rooms/deluxe-room.jpg",  // ← YOUR DELUXE ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <img src="https://placehold.co/1200x800/1a2a3a/d4af37?text=DELUXE+ROOM" alt="Deluxe Room">
+          <img src="images/rooms/deluxe-room.jpg" alt="Deluxe Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Deluxe Room</h3>
@@ -743,11 +747,11 @@
       </div>
     </div>
 
-    <!-- 📍 IMAGE 9: PREMIUM ROOM -->
+    <!-- room-premium: "images/rooms/premium-room.jpg",  // ← YOUR PREMIUM ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
         <div class="room-image-box">
-          <img src="https://placehold.co/1200x800/1a2a3a/d4af37?text=PREMIUM+ROOM" alt="Premium Room">
+          <img src="images/rooms/premium-room.jpg" alt="Premium Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Premium Room</h3>
@@ -764,11 +768,11 @@
       </div>
     </div>
 
-    <!-- 📍 IMAGE 10: LUXURY ROOM -->
+    <!-- room-luxury: "images/rooms/luxury-room.jpg",  // ← YOUR LUXURY ROOM -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <img src="https://placehold.co/1200x800/1a2a3a/d4af37?text=LUXURY+ROOM" alt="Luxury Room">
+          <img src="images/rooms/luxury-room.jpg" alt="Luxury Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Luxury Room</h3>
@@ -819,16 +823,15 @@
 </section>
 
 <!-- ========================================== -->
-<!-- LOCATION SECTION - MAP IMAGE              -->
-<!-- PASTE YOUR MAP OR AERIAL IMAGE URL BELOW  -->
+<!-- LOCATION SECTION - CHANGE THIS LINE        -->
+<!-- map-image: "images/map-location.jpg",  // ← YOUR MAP OR AERIAL VIEW -->
 <!-- ========================================== -->
 <section id="location">
   <div class="section-title reveal">Arrival</div>
   <div class="section-sub reveal">AHANSONYEWODEA, AGYA NSIAH, OBUASI</div>
   <div class="location-box reveal">
-    <!-- 📍 IMAGE 11: MAP OR AERIAL VIEW -->
     <div class="map-image">
-      <img src="https://placehold.co/1200x800/1a2a3a/d4af37?text=MAP+LOCATION" alt="Hotel Location">
+      <img src="images/map-location.jpg" alt="Hotel Location">
     </div>
     <div class="address">
       <h3 style="font-size:1.8rem; color:#e8e4df;">A Hidden Throne</h3>
@@ -981,12 +984,9 @@
 
 <footer>
   <div class="footer-logo">
-    <!-- ========================================== -->
-    <!-- 📍 IMAGE 12: FOOTER LOGO                   -->
-    <!-- PASTE YOUR FOOTER LOGO IMAGE URL BELOW     -->
-    <!-- ========================================== -->
+    <!-- footer-logo: "images/logo-small.png",  // ← YOUR FOOTER LOGO -->
     <div class="footer-logo-image">
-      <img src="images/logo.png" alt="Kelnessa Hotel Logo">
+      <img src="images/logo-small.png" alt="Kelnessa Hotel Logo">
     </div>
     <div class="logo-text" style="font-size:1.4rem;">KELNESSA <span>HOTEL</span></div>
   </div>
@@ -997,7 +997,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  // Initialize Swipers
   const gallerySwiper = new Swiper('.gallery-swiper', {
     loop: true, autoplay: { delay: 5000, disableOnInteraction: false },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
@@ -1012,7 +1011,6 @@
     slidesPerView: 1,
   });
 
-  // Scroll Reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1021,7 +1019,6 @@
   }, { threshold: 0.15 });
   reveals.forEach(el => observer.observe(el));
 
-  // Hamburger Menu
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeMenu = document.getElementById('closeMenu');
@@ -1041,7 +1038,6 @@
     });
   });
 
-  // Smooth Scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -1054,10 +1050,7 @@
     });
   });
 
-  // ============================================
-  // BOOKING MODAL SYSTEM
-  // ============================================
-  
+  // Booking Modal System
   const modal = document.getElementById('bookingModal');
   const openModalBtns = document.querySelectorAll('#openModalBtn, #mobileOpenModalBtn, #heroOpenModalBtn');
   const closeModalBtn = document.getElementById('closeModalBtn');
@@ -1073,7 +1066,6 @@
   function calculateCheckoutDate() {
     const checkinDate = new Date(checkinInput.value);
     const nights = parseInt(nightsSelect.value);
-    
     if (checkinDate && nights > 0) {
       const checkoutDate = new Date(checkinDate);
       checkoutDate.setDate(checkinDate.getDate() + nights);
@@ -1128,34 +1120,13 @@
     document.body.style.overflow = '';
   }
   
-  openModalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal();
-    });
-  });
-  
-  roomBookBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const roomName = btn.getAttribute('data-room');
-      openModal(roomName);
-    });
-  });
-  
+  openModalBtns.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+  roomBookBtns.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); const roomName = btn.getAttribute('data-room'); openModal(roomName); }));
   closeModalBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   
-  checkinInput.addEventListener('change', () => {
-    calculateCheckoutDate();
-    updateBookingSummary();
-  });
-  nightsSelect.addEventListener('change', () => {
-    calculateCheckoutDate();
-    updateBookingSummary();
-  });
+  checkinInput.addEventListener('change', () => { calculateCheckoutDate(); updateBookingSummary(); });
+  nightsSelect.addEventListener('change', () => { calculateCheckoutDate(); updateBookingSummary(); });
   
   ['adults', 'children', 'rooms', 'roomType', 'smoking', 'bedPreference'].forEach(id => {
     const element = document.getElementById(id);
@@ -1188,7 +1159,6 @@
       alert('Please fill in all required fields: Full Name, Email, Phone Number, and Nationality');
       return;
     }
-    
     if (!checkin || nights === '0') {
       alert('Please select valid check-in date and number of nights');
       return;
@@ -1225,10 +1195,8 @@ We will contact you shortly to confirm your reservation.
     const subject = encodeURIComponent(`Booking Request - ${fullname} - ${roomType} - ${nights} nights`);
     const body = encodeURIComponent(bookingMessage);
     window.location.href = `mailto:williamotoo672@gmail.com?subject=${subject}&body=${body}`;
-    
-    alert(`Thank you ${fullname}! Your booking request has been sent. We will contact you within 24 hours to confirm your reservation at Kelnessa Hotel.`);
+    alert(`Thank you ${fullname}! Your booking request has been sent. We will contact you within 24 hours.`);
     closeModal();
-    
     bookingForm.reset();
     checkinInput.value = today;
     nightsSelect.value = '2';
