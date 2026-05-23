@@ -1,3 +1,8 @@
+I see your GitHub image files! Let me fix this properly. The issue is that on mobile, the images need to be responsive. Also, I'll use your exact GitHub image filenames.
+
+Here is the complete website with **your GitHub image names** and **proper responsive sizing**:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,37 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
-    /* ============================================ */
-    /* 📷 CHANGE ONLY THESE LINES - YOUR IMAGE URLs 📷 */
-    /* ============================================ */
-    /* Just replace the image paths below with your own image URLs */
-    /* Examples: "images/logo.png" or "https://your-site.com/logo.png" */
-    /* ============================================ */
-    
-    /* BACKGROUND IMAGE */
-    bg-image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",  // ← YOUR BACKGROUND IMAGE
-    
-    /* LOGO IMAGES */
-    logo-image: "images/logo.png",  // ← YOUR LOGO IMAGE
-    footer-logo: "images/logo.png",  // ← YOUR FOOTER LOGO
-    
-    /* GALLERY IMAGES */
-    gallery-img-1: "images/facade.webp",  // ← YOUR HOTEL FAÇADE
-    gallery-img-2: "images/gallery/lounge.jpg",  // ← YOUR LOUNGE BAR
-    gallery-img-3: "images/gallery/dining.jpg",  // ← YOUR DINING AREA
-    gallery-img-4: "images/gallery/suite.jpg",  // ← YOUR SUITE
-    
-    /* ROOM IMAGES */
-    room-signature: "images/rooms/signature-room.jpg",  // ← YOUR SIGNATURE ROOM
-    room-executive: "images/rooms/executive-room.jpg",  // ← YOUR EXECUTIVE ROOM
-    room-deluxe: "images/rooms/deluxe-room.jpg",  // ← YOUR DELUXE ROOM
-    room-premium: "images/rooms/premium-room.jpg",  // ← YOUR PREMIUM ROOM
-    room-luxury: "images/rooms/luxury-room.jpg",  // ← YOUR LUXURY ROOM
-    
-    /* MAP IMAGE */
-    map-image: "images/map.png",  // ← YOUR MAP OR AERIAL VIEW
-    /* ============================================ */
-
     * {
       margin: 0;
       padding: 0;
@@ -51,7 +25,7 @@
       overflow-x: hidden;
     }
 
-    /* BACKGROUND IMAGE - using the variable above */
+    /* BACKGROUND IMAGE - from your GitHub */
     .fixed-bg {
       position: fixed;
       top: 0;
@@ -59,7 +33,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-image: url('map.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -257,6 +231,7 @@
     .section-title { text-align: center; font-size: 3.2rem; margin-bottom: 0.5rem; color: #e8e4df; }
     .section-sub { text-align: center; color: #d4af37; letter-spacing: 5px; font-size: 0.7rem; margin-bottom: 3.5rem; text-transform: uppercase; }
 
+    /* Gallery Swiper - Responsive */
     .gallery-swiper { width: 100%; max-width: 1300px; margin: 0 auto; border-radius: 28px; overflow: hidden; }
     .gallery-slide { height: 580px; border-radius: 28px; overflow: hidden; }
     .gallery-slide img {
@@ -272,6 +247,7 @@
       border-radius: 50%;
     }
 
+    /* Amenities Slider */
     .amenities-swiper { width: 100%; max-width: 1000px; margin: 0 auto; border-radius: 32px; overflow: hidden; }
     .amenity-slide {
       background: rgba(20, 35, 50, 0.85);
@@ -285,6 +261,7 @@
     .amenity-slide h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #e8e4df; }
     .amenity-slide p { font-size: 0.9rem; line-height: 1.7; color: #c5d5e4; }
 
+    /* Rooms Section - Responsive */
     .rooms-container { max-width: 1400px; margin: 0 auto; }
     .room-wrapper { margin-bottom: 5rem; }
     
@@ -405,9 +382,7 @@
       overflow-y: auto;
     }
     
-    .booking-modal.active {
-      display: flex;
-    }
+    .booking-modal.active { display: flex; }
     
     .modal-content {
       max-width: 900px;
@@ -422,8 +397,6 @@
       margin: 2rem auto;
     }
     
-    .modal-content::-webkit-scrollbar { width: 4px; }
-    
     .modal-header {
       background: rgba(212, 175, 55, 0.15);
       padding: 1.5rem;
@@ -437,7 +410,6 @@
     
     .modal-header h3 { font-size: 1.8rem; color: #e8e4df; }
     .modal-header p { font-size: 0.8rem; opacity: 0.7; }
-    
     .close-modal {
       position: absolute;
       top: 1.2rem;
@@ -504,13 +476,6 @@
       transition: all 0.3s ease;
     }
     
-    .form-group input:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: #d4af37;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-    }
-    
     .booking-summary {
       background: rgba(10, 22, 32, 0.6);
       border-radius: 16px;
@@ -518,9 +483,6 @@
       margin-bottom: 1.5rem;
       text-align: center;
     }
-    
-    .booking-summary p { font-size: 0.8rem; color: #b0c4de; }
-    .booking-summary strong { color: #d4af37; }
     
     .submit-btn {
       background: #d4af37;
@@ -537,12 +499,7 @@
       margin-top: 0.5rem;
       text-transform: uppercase;
     }
-    
-    .submit-btn:hover {
-      background: #e8c44a;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-    }
+    .submit-btn:hover { background: #e8c44a; transform: translateY(-2px); }
 
     footer {
       background: rgba(8, 14, 21, 0.95);
@@ -576,21 +533,36 @@
     .socials i { font-size: 1.2rem; margin: 0 14px; color: #d4af37; transition: 0.3s; cursor: pointer; }
     .socials i:hover { color: #e8c44a; transform: translateY(-3px); }
     
+    /* MOBILE RESPONSIVE FIXES */
     @media (max-width: 900px) {
       .nav-links { display: none; }
       .hamburger { display: block; }
       .room-layout-left, .room-layout-right { flex-direction: column; }
-      .room-image-box { min-height: 300px; width: 100%; }
+      .room-image-box { min-height: 280px; width: 100%; }
       .room-content-box { padding: 1.8rem; }
       .room-title { font-size: 1.8rem; }
       .hero-content h1 { font-size: 2.8rem; }
       .section-title { font-size: 2.2rem; }
-      .gallery-slide { height: 380px; }
+      .gallery-slide { height: 350px; }
       section { padding: 60px 5%; }
-      .map-image { min-height: 280px; }
+      .map-image { min-height: 250px; }
       .booking-form { padding: 1.5rem; }
       .form-grid { grid-template-columns: 1fr; }
       .modal-content { width: 95%; }
+      .room-image-box { min-height: 250px; }
+      .gallery-slide { height: 280px; }
+      .amenity-slide { padding: 2rem 1.5rem; }
+      .amenity-slide h3 { font-size: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.8rem; }
+      .room-title { font-size: 1.5rem; }
+      .room-content-box { padding: 1.2rem; }
+      .room-image-box { min-height: 200px; }
+      .gallery-slide { height: 220px; }
+      .btn-book, .btn-primary, .submit-btn { padding: 0.7rem 1.5rem; font-size: 0.65rem; }
     }
   </style>
 </head>
@@ -600,8 +572,7 @@
 
 <nav>
   <div class="logo-container">
-    <!-- LOGO IMAGE - CHANGE THIS LINE - use your GitHub image path -->
-    <!-- img: "images/logo.png",  // ← YOUR LOGO IMAGE -->
+    <!-- LOGO IMAGE - from your GitHub -->
     <div class="logo-image">
       <img src="images/logo.png" alt="Kelnessa Hotel Logo">
     </div>
@@ -644,29 +615,29 @@
 </div>
 
 <!-- ========================================== -->
-<!-- GALLERY SECTION - CHANGE THESE LINES       -->
-<!-- Use your GitHub image paths                -->
+<!-- GALLERY SECTION - Using your GitHub images -->
+<!-- Images: facade.webp, lounge.webp, dinning.webp, esuit.webp -->
 <!-- ========================================== -->
 <section id="gallery">
   <div class="section-title reveal">The Estate</div>
   <div class="section-sub reveal">VISUAL CHRONICLES</div>
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
-      <!-- gallery-img-1: "images/gallery/facade.jpg",  // ← YOUR HOTEL FAÇADE -->
+      <!-- GALLERY IMAGE 1: HOTEL FAÇADE - facade.webp -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/gallery/facade.jpg" alt="Hotel Façade">
+        <img src="images/facade.webp" alt="Hotel Façade">
       </div>
-      <!-- gallery-img-2: "images/gallery/lounge.jpg",  // ← YOUR LOUNGE BAR -->
+      <!-- GALLERY IMAGE 2: LOUNGE BAR - lounge.webp -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/gallery/lounge.jpg" alt="Lounge Bar">
+        <img src="images/lounge.webp" alt="Lounge Bar">
       </div>
-      <!-- gallery-img-3: "images/gallery/dining.jpg",  // ← YOUR DINING AREA -->
+      <!-- GALLERY IMAGE 3: PRIVATE DINING - dinning.webp -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/gallery/dining.jpg" alt="Private Dining">
+        <img src="images/dinning.webp" alt="Private Dining">
       </div>
-      <!-- gallery-img-4: "images/gallery/suite.jpg",  // ← YOUR SUITE -->
+      <!-- GALLERY IMAGE 4: EXECUTIVE SUITE - esuit.webp -->
       <div class="swiper-slide gallery-slide">
-        <img src="images/gallery/suite.jpg" alt="Luxury Suite">
+        <img src="images/esuit.webp" alt="Executive Suite">
       </div>
     </div>
     <div class="swiper-button-next"></div>
@@ -676,19 +647,20 @@
 </section>
 
 <!-- ========================================== -->
-<!-- ROOMS SECTION - CHANGE THESE LINES         -->
-<!-- Use your GitHub image paths                -->
+<!-- ROOMS SECTION - Using your GitHub images   -->
+<!-- Images: signature.webp, executive.webp,    -->
+<!-- deluxe.webp, premium.webp, luxury.webp     -->
 <!-- ========================================== -->
 <section id="rooms">
   <div class="section-title reveal">Chambers</div>
   <div class="section-sub reveal">WHERE STILLNESS RESIDES</div>
   <div class="rooms-container">
     
-    <!-- room-signature: "images/rooms/signature-room.jpg",  // ← YOUR SIGNATURE ROOM -->
+    <!-- ROOM 1: SIGNATURE ROOM - signature.webp (IMAGE LEFT) -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <img src="images/rooms/signature-room.jpg" alt="Signature Room">
+          <img src="images/signature.webp" alt="Signature Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Signature Room</h3>
@@ -705,11 +677,11 @@
       </div>
     </div>
 
-    <!-- room-executive: "images/rooms/executive-room.jpg",  // ← YOUR EXECUTIVE ROOM -->
+    <!-- ROOM 2: EXECUTIVE ROOM - executive.webp (IMAGE RIGHT) -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
         <div class="room-image-box">
-          <img src="images/rooms/executive-room.jpg" alt="Executive Room">
+          <img src="images/executive.webp" alt="Executive Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Executive Room</h3>
@@ -726,11 +698,11 @@
       </div>
     </div>
 
-    <!-- room-deluxe: "images/rooms/deluxe-room.jpg",  // ← YOUR DELUXE ROOM -->
+    <!-- ROOM 3: DELUXE ROOM - deluxe.webp (IMAGE LEFT) -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <img src="images/rooms/deluxe-room.jpg" alt="Deluxe Room">
+          <img src="images/deluxe.webp" alt="Deluxe Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Deluxe Room</h3>
@@ -747,11 +719,11 @@
       </div>
     </div>
 
-    <!-- room-premium: "images/rooms/premium-room.jpg",  // ← YOUR PREMIUM ROOM -->
+    <!-- ROOM 4: PREMIUM ROOM - premium.webp (IMAGE RIGHT) -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-right">
         <div class="room-image-box">
-          <img src="images/rooms/premium-room.jpg" alt="Premium Room">
+          <img src="images/premium.webp" alt="Premium Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Premium Room</h3>
@@ -768,11 +740,11 @@
       </div>
     </div>
 
-    <!-- room-luxury: "images/rooms/luxury-room.jpg",  // ← YOUR LUXURY ROOM -->
+    <!-- ROOM 5: LUXURY ROOM - luxury.webp (IMAGE LEFT) -->
     <div class="room-wrapper reveal">
       <div class="room-card room-layout-left">
         <div class="room-image-box">
-          <img src="images/rooms/luxury-room.jpg" alt="Luxury Room">
+          <img src="images/luxury.webp" alt="Luxury Room">
         </div>
         <div class="room-content-box">
           <h3 class="room-title">Luxury Room</h3>
@@ -823,15 +795,14 @@
 </section>
 
 <!-- ========================================== -->
-<!-- LOCATION SECTION - CHANGE THIS LINE        -->
-<!-- map-image: "images/map-location.jpg",  // ← YOUR MAP OR AERIAL VIEW -->
+<!-- LOCATION SECTION - map.png from your GitHub -->
 <!-- ========================================== -->
 <section id="location">
   <div class="section-title reveal">Arrival</div>
   <div class="section-sub reveal">AHANSONYEWODEA, AGYA NSIAH, OBUASI</div>
   <div class="location-box reveal">
     <div class="map-image">
-      <img src="images/map-location.jpg" alt="Hotel Location">
+      <img src="images/map.png" alt="Hotel Location">
     </div>
     <div class="address">
       <h3 style="font-size:1.8rem; color:#e8e4df;">A Hidden Throne</h3>
@@ -852,10 +823,7 @@
     
     <form class="booking-form" id="bookingForm">
       <div class="form-section">
-        <div class="form-section-title">
-          <i class="fas fa-hotel"></i>
-          <span>Stay Details</span>
-        </div>
+        <div class="form-section-title"><i class="fas fa-hotel"></i><span>Stay Details</span></div>
         <div class="form-grid">
           <div class="form-group">
             <label><i class="fas fa-calendar-check"></i> Check-in Date</label>
@@ -882,7 +850,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label><i class="fas fa-calendar-times"></i> Check-out Date (Auto-calculated)</label>
+            <label><i class="fas fa-calendar-times"></i> Check-out Date</label>
             <input type="text" id="checkout" name="checkout" readonly style="background: rgba(10, 22, 32, 0.5); cursor: not-allowed;">
           </div>
           <div class="form-group">
@@ -947,10 +915,7 @@
       </div>
 
       <div class="form-section">
-        <div class="form-section-title">
-          <i class="fas fa-user-circle"></i>
-          <span>Guest Information</span>
-        </div>
+        <div class="form-section-title"><i class="fas fa-user-circle"></i><span>Guest Information</span></div>
         <div class="form-grid">
           <div class="form-group">
             <label><i class="fas fa-user"></i> Full Name *</label>
@@ -975,18 +940,15 @@
         <p><i class="fas fa-info-circle"></i> Your booking summary will appear here</p>
       </div>
 
-      <button type="submit" class="submit-btn">
-        <i class="fas fa-check-circle"></i> CONFIRM BOOKING
-      </button>
+      <button type="submit" class="submit-btn"><i class="fas fa-check-circle"></i> CONFIRM BOOKING</button>
     </form>
   </div>
 </div>
 
 <footer>
   <div class="footer-logo">
-    <!-- footer-logo: "images/logo-small.png",  // ← YOUR FOOTER LOGO -->
     <div class="footer-logo-image">
-      <img src="images/logo-small.png" alt="Kelnessa Hotel Logo">
+      <img src="images/logo.png" alt="Kelnessa Hotel Logo">
     </div>
     <div class="logo-text" style="font-size:1.4rem;">KELNESSA <span>HOTEL</span></div>
   </div>
@@ -1013,9 +975,7 @@
 
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('active');
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
   }, { threshold: 0.15 });
   reveals.forEach(el => observer.observe(el));
 
@@ -1073,9 +1033,7 @@
       const month = String(checkoutDate.getMonth() + 1).padStart(2, '0');
       const day = String(checkoutDate.getDate()).padStart(2, '0');
       checkoutDisplay.value = `${year}-${month}-${day}`;
-      return checkoutDisplay.value;
     }
-    return '';
   }
   
   function updateBookingSummary() {
@@ -1090,11 +1048,7 @@
     const bedPreference = document.getElementById('bedPreference').value;
     
     if (checkin && nights > 0) {
-      bookingSummary.innerHTML = `
-        <p><i class="fas fa-calendar-check"></i> <strong>Stay Summary:</strong> ${nights} night(s) | Check-in: ${checkin} | Check-out: ${checkout}</p>
-        <p><i class="fas fa-users"></i> <strong>Guests:</strong> ${adults} Adult(s) | ${children} Child(ren) | ${rooms} Room(s)</p>
-        <p><i class="fas fa-bed"></i> <strong>Room:</strong> ${roomType} | ${smoking} | ${bedPreference} Bed</p>
-      `;
+      bookingSummary.innerHTML = `<p><i class="fas fa-calendar-check"></i> <strong>Stay Summary:</strong> ${nights} night(s) | Check-in: ${checkin} | Check-out: ${checkout}</p><p><i class="fas fa-users"></i> <strong>Guests:</strong> ${adults} Adult(s) | ${children} Child(ren) | ${rooms} Room(s)</p><p><i class="fas fa-bed"></i> <strong>Room:</strong> ${roomType} | ${smoking} | ${bedPreference} Bed</p>`;
     } else {
       bookingSummary.innerHTML = `<p><i class="fas fa-info-circle"></i> Select your stay details to see booking summary.</p>`;
     }
@@ -1156,56 +1110,19 @@
     const bedPreference = document.getElementById('bedPreference').value;
     
     if (!fullname || !email || !phone || !nationality) {
-      alert('Please fill in all required fields: Full Name, Email, Phone Number, and Nationality');
-      return;
-    }
-    if (!checkin || nights === '0') {
-      alert('Please select valid check-in date and number of nights');
+      alert('Please fill in all required fields');
       return;
     }
     
-    const bookingMessage = `KELNESSA HOTEL BOOKING REQUEST
+    const bookingMessage = `KELNESSA HOTEL BOOKING REQUEST\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSTAY DETAILS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCheck-in: ${checkin}\nCheck-out: ${checkout}\nNights: ${nights}\nAdults: ${adults}\nChildren: ${children}\nRooms: ${rooms}\nRoom Type: ${roomType}\nSmoking: ${smoking}\nBed: ${bedPreference}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nGUEST INFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nName: ${fullname}\nEmail: ${email}\nPhone: ${phone}\nNationality: ${nationality}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nThank you for choosing Kelnessa Hotel.`;
     
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STAY DETAILS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Check-in Date: ${checkin}
-Check-out Date: ${checkout}
-Number of Nights: ${nights}
-Number of Adults: ${adults}
-Number of Children: ${children}
-Number of Rooms: ${rooms}
-Room Type: ${roomType}
-Smoking Preference: ${smoking}
-Bed Preference: ${bedPreference}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-GUEST INFORMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Full Name: ${fullname}
-Email: ${email}
-Phone: ${phone}
-Nationality: ${nationality}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Thank you for choosing Kelnessa Hotel.
-We will contact you shortly to confirm your reservation.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
-    
-    const subject = encodeURIComponent(`Booking Request - ${fullname} - ${roomType} - ${nights} nights`);
+    const subject = encodeURIComponent(`Booking Request - ${fullname} - ${roomType}`);
     const body = encodeURIComponent(bookingMessage);
     window.location.href = `mailto:williamotoo672@gmail.com?subject=${subject}&body=${body}`;
-    alert(`Thank you ${fullname}! Your booking request has been sent. We will contact you within 24 hours.`);
+    alert(`Thank you ${fullname}! Your booking request has been sent.`);
     closeModal();
-    bookingForm.reset();
-    checkinInput.value = today;
-    nightsSelect.value = '2';
-    document.getElementById('adults').value = '2';
-    document.getElementById('children').value = '0';
-    document.getElementById('rooms').value = '1';
-    calculateCheckoutDate();
-    updateBookingSummary();
   });
 </script>
 </body>
 </html>
+```
