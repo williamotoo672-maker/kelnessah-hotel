@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KELNESSA HOTEL | Private Reserve • Obuasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #e8e4df;
+      overflow-x: hidden;
+    }
+
+    /* SINGLE BACKGROUND IMAGE FOR ALL SECTIONS */
+    .fixed-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .fixed-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(10, 22, 32, 0.92) 0%, rgba(10, 22, 32, 0.88) 100%);
+      pointer-events: none;
+    }
+
+    .fixed-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at 50% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1a2a3a; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+
+    /* Premium Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 22, 32, 0.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+    }
+    
+    /* LOGO IMAGE PLACEHOLDER */
+    .logo-image {
+      width: 48px;
+      height: 48px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 2px dashed #d4af37;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .logo-image i {
+      font-size: 1.6rem;
+      color: #d4af37;
+      opacity: 0.6;
+    }
+    
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #e8e4df;
+      letter-spacing: 1px;
+    }
+    .logo-text span {
+      color: #d4af37;
+      font-weight: 500;
+    }
+    
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { 
+      text-decoration: none; 
+      color: #e8e4df; 
+      font-size: 0.7rem; 
+      letter-spacing: 2.5px; 
+      transition: 0.3s; 
+      text-transform: uppercase;
+      font-weight: 500;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: #d4af37;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-links a:hover { color: #d4af37; }
+    .book-cta { 
+      background: #d4af37; 
+      color: #0a1620 !important; 
+      padding: 0.6rem 1.6rem; 
+      border-radius: 50px; 
+      font-weight: 700; 
+      letter-spacing: 1.5px;
+    }
+    .book-cta:hover { 
+      background: #e8c44a; 
+      transform: scale(1.05); 
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #d4af37;
+      margin: 6px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 350px;
+      height: 100vh;
+      background: rgba(10, 22, 32, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      padding: 7rem 2rem 2rem;
+      transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border-left: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a {
+      color: #e8e4df;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      transition: 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .mobile-menu a:hover { 
+      color: #d4af37; 
+      padding-left: 12px;
+    }
+    .close-menu {
+      position: absolute;
+      top: 1.8rem;
+      right: 1.8rem;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #d4af37;
+    }
+
+    .hero {
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content { max-width: 850px; padding: 0 5%; z-index: 2; }
+    .hero-content h1 { 
+      font-size: 5rem; 
+      margin-bottom: 1rem; 
+      color: #e8e4df; 
+      text-shadow: 0 2px 30px rgba(0,0,0,0.4);
+    }
+    .hero-content p { 
+      font-size: 1rem; 
+      max-width: 550px; 
+      margin: 0 auto; 
+      opacity: 0.8; 
+      line-height: 1.8;
+    }
+    .divider { 
+      width: 70px; 
+      height: 2px; 
+      background: linear-gradient(90deg, transparent, #d4af37, #d4af37, transparent);
+      margin: 1.5rem auto; 
+    }
+    .btn-primary {
+      background: #d4af37;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #0a1620;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover { 
+      background: #e8c44a; 
+      transform: translateY(-3px); 
+    }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    section { padding: 100px 5%; }
+    .section-title { text-align: center; font-size: 3.2rem; margin-bottom: 0.5rem; color: #e8e4df; }
+    .section-sub { text-align: center; color: #d4af37; letter-spacing: 5px; font-size: 0.7rem; margin-bottom: 3.5rem; text-transform: uppercase; }
+
+    /* Gallery Swiper */
+    .gallery-swiper { width: 100%; max-width: 1300px; margin: 0 auto; border-radius: 28px; overflow: hidden; }
+    .gallery-slide { height: 580px; border-radius: 28px; overflow: hidden; }
+    .gallery-placeholder {
+      width: 100%; height: 100%; background: rgba(20, 35, 50, 0.8);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+      border: 2px dashed #d4af37;
+      border-radius: 28px;
+    }
+    .gallery-placeholder i { font-size: 4rem; color: #d4af37; opacity: 0.5; }
+    .gallery-placeholder p { color: #d4af37; letter-spacing: 3px; }
+    .gallery-swiper .swiper-button-next, .gallery-swiper .swiper-button-prev { 
+      color: #d4af37; 
+      background: rgba(0,0,0,0.5); 
+      width: 50px; 
+      height: 50px; 
+      border-radius: 50%;
+    }
+
+    /* Amenities Slider - ONE SLIDE AT A TIME */
+    .amenities-swiper { width: 100%; max-width: 1000px; margin: 0 auto; border-radius: 32px; overflow: hidden; }
+    .amenity-slide {
+      background: rgba(20, 35, 50, 0.85); backdrop-filter: blur(12px); padding: 3rem 2.5rem; text-align: center;
+      border-radius: 32px; border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .amenity-slide i { font-size: 3.5rem; color: #d4af37; margin-bottom: 1.2rem; }
+    .amenity-slide h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #e8e4df; }
+    .amenity-slide p { font-size: 0.9rem; line-height: 1.7; color: #c5d5e4; }
+    .amenities-swiper .swiper-button-next, .amenities-swiper .swiper-button-prev { 
+      color: #d4af37; 
+      background: rgba(0,0,0,0.5); 
+      width: 48px; 
+      height: 48px; 
+      border-radius: 50%;
+    }
+
+    /* ============================================ */
+    /* ROOMS SECTION - ENLARGED IMAGE SPACES       */
+    /* Each room image takes 50% of card width     */
+    /* Minimum height 500px for large photos       */
+    /* ============================================ */
+    .rooms-container { max-width: 1400px; margin: 0 auto; }
+    .room-wrapper { margin-bottom: 5rem; }
+    
+    .room-card {
+      display: flex;
+      flex-wrap: wrap;
+      background: rgba(15, 30, 45, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.4s ease;
+    }
+    .room-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* ENLARGED IMAGE BOX - takes 50% width, minimum 500px height */
+    .room-image-box {
+      flex: 1;
+      min-width: 45%;
+      min-height: 500px;
+      background: rgba(10, 25, 38, 0.9);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* IMAGE CONTAINER - fits the entire box perfectly */
+    .room-image-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* For actual images - uncomment and use */
+    .room-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .room-card:hover .room-image-container img {
+      transform: scale(1.05);
+    }
+    
+    /* Placeholder styling (visible until you add images) */
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0d1f2d 0%, #0a1620 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border: 2px dashed #d4af37;
+      min-height: 500px;
+    }
+    .image-placeholder i { font-size: 4rem; color: #d4af37; opacity: 0.4; }
+    .image-placeholder span { font-size: 0.8rem; color: #d4af37; letter-spacing: 3px; }
+    
+    .room-content-box {
+      flex: 1;
+      padding: 3rem;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .room-title { font-size: 2.3rem; font-weight: 600; color: #e8e4df; margin-bottom: 0.5rem; }
+    .room-description { font-size: 0.9rem; line-height: 1.7; color: #c5d5e4; margin: 1rem 0; }
+    .room-price { font-size: 1.7rem; font-weight: 600; color: #d4af37; margin: 1rem 0; }
+    .room-price span { font-size: 0.9rem; font-weight: 400; color: #8aa0b0; }
+    .amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .amenity {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #c5d5e4;
+    }
+    .amenity i { color: #d4af37; font-size: 0.85rem; width: 18px; }
+    .btn-book {
+      background: transparent;
+      border: 1.5px solid #d4af37;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #d4af37;
+      cursor: pointer;
+      border-radius: 50px;
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
+    .btn-book:hover {
+      background: #d4af37;
+      color: #0a1620;
+      transform: translateX(6px);
+    }
+    
+    /* Alternating Layouts */
+    .room-layout-left { flex-direction: row; }
+    .room-layout-right { flex-direction: row-reverse; }
+
+    /* Review Card */
+    .review-card {
+      max-width: 850px; margin: 2rem auto; background: rgba(15, 30, 45, 0.85); backdrop-filter: blur(10px);
+      padding: 3rem; text-align: center; border-radius: 40px; border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .stars { color: #d4af37; letter-spacing: 6px; font-size: 1.2rem; margin-bottom: 1rem; }
+    .review-text { font-size: 1.05rem; font-style: italic; line-height: 1.7; color: #c5d5e4; margin: 1rem 0; }
+
+    /* Location */
+    .location-box {
+      display: flex; flex-wrap: wrap; gap: 2rem; background: rgba(15, 30, 45, 0.85); backdrop-filter: blur(10px);
+      border-radius: 32px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .map-placeholder { 
+      flex: 1; min-height: 400px; background: rgba(10, 25, 38, 0.9); 
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;
+      border: 2px dashed #d4af37;
+    }
+    .map-placeholder i { font-size: 3rem; color: #d4af37; opacity: 0.5; }
+    .address { flex: 1; padding: 2.5rem; }
+    .btn-outline {
+      background: transparent; border: 1.5px solid #d4af37; padding: 0.8rem 2rem; font-size: 0.7rem;
+      font-weight: 600; letter-spacing: 2.5px; color: #d4af37; cursor: pointer; border-radius: 50px;
+    }
+    .btn-outline:hover { background: #d4af37; color: #0a1620; }
+
+    footer {
+      background: rgba(8, 14, 21, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 3rem 5%;
+      text-align: center;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .footer-logo-placeholder {
+      width: 45px;
+      height: 45px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 2px dashed #d4af37;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-logo-placeholder i { font-size: 1.3rem; color: #d4af37; opacity: 0.6; }
+    .socials i { font-size: 1.2rem; margin: 0 14px; color: #d4af37; transition: 0.3s; cursor: pointer; }
+    .socials i:hover { color: #e8c44a; transform: translateY(-3px); }
+    
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .room-layout-left, .room-layout-right { flex-direction: column; }
+      .room-image-box { min-height: 350px; width: 100%; }
+      .image-placeholder { min-height: 350px; }
+      .room-content-box { padding: 1.8rem; }
+      .room-title { font-size: 1.8rem; }
+      .hero-content h1 { font-size: 2.8rem; }
+      .section-title { font-size: 2.2rem; }
+      .gallery-slide { height: 380px; }
+      .hero { height: 90vh; min-height: 550px; }
+      section { padding: 60px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="fixed-bg"></div>
+
+<nav>
+  <div class="logo-container">
+    <!-- 📍 IMAGE INSERTION POINT #1: LOGO IMAGE -->
+    <div class="logo-image">
+      <i class="fas fa-crown"></i>
+      <!-- REPLACE WITH YOUR LOGO: <img src="images/logo.png" alt="Kelnessa Hotel Logo" style="width:100%; height:100%; object-fit:cover;"> -->
+    </div>
+    <div class="logo-text">KELNESSA <span>HOTEL</span></div>
+  </div>
+  <div class="hamburger" id="hamburgerBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">HOME</a></li>
+    <li><a href="#gallery">GALLERY</a></li>
+    <li><a href="#rooms">ROOMS</a></li>
+    <li><a href="#amenities">AMENITIES</a></li>
+    <li><a href="#review">TESTIMONIAL</a></li>
+    <li><a href="#location">LOCATION</a></li>
+    <li><a href="#booking" class="book-cta">RESERVE</a></li>
+  </ul>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-menu" id="closeMenu"><i class="fas fa-times"></i></div>
+  <a href="#home">HOME</a>
+  <a href="#gallery">GALLERY</a>
+  <a href="#rooms">ROOMS</a>
+  <a href="#amenities">AMENITIES</a>
+  <a href="#review">TESTIMONIAL</a>
+  <a href="#location">LOCATION</a>
+  <a href="#booking">RESERVE</a>
+</div>
+
+<!-- Hero -->
+<div id="home" class="hero">
+  <div class="hero-content reveal">
+    <h1>KELNESSA HOTEL</h1>
+    <div class="divider"></div>
+    <p>Ahansonyewodea, Agya Nsiah — Obuasi. A private reserve defined by silence, texture, and discretion.</p>
+    <button class="btn-primary" onclick="window.location.href='mailto:williamotoo672@gmail.com'">INQUIRE STAY</button>
+  </div>
+</div>
+
+<!-- GALLERY SECTION -->
+<section id="gallery">
+  <div class="section-title reveal">The Estate</div>
+  <div class="section-sub reveal">VISUAL CHRONICLES</div>
+  <div class="swiper gallery-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide gallery-slide">
+        <div class="gallery-placeholder">
+          <i class="fas fa-building"></i>
+          <p>HOTEL FAÇADE</p>
+          <!-- 📍 IMAGE INSERTION POINT #2: HOTEL FAÇADE -->
+        </div>
+      </div>
+      <div class="swiper-slide gallery-slide">
+        <div class="gallery-placeholder">
+          <i class="fas fa-couch"></i>
+          <p>LOUNGE BAR</p>
+          <!-- 📍 IMAGE INSERTION POINT #3: LOUNGE BAR -->
+        </div>
+      </div>
+      <div class="swiper-slide gallery-slide">
+        <div class="gallery-placeholder">
+          <i class="fas fa-utensils"></i>
+          <p>PRIVATE DINING</p>
+          <!-- 📍 IMAGE INSERTION POINT #4: PRIVATE DINING -->
+        </div>
+      </div>
+      <div class="swiper-slide gallery-slide">
+        <div class="gallery-placeholder">
+          <i class="fas fa-bed"></i>
+          <p>EXECUTIVE SUITE</p>
+          <!-- 📍 IMAGE INSERTION POINT #5: EXECUTIVE SUITE -->
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- ROOMS SECTION - ENLARGED IMAGE SPACES -->
+<section id="rooms">
+  <div class="section-title reveal">Chambers</div>
+  <div class="section-sub reveal">WHERE STILLNESS RESIDES</div>
+  <div class="rooms-container">
+    
+    <!-- ROOM 1: SIGNATURE ROOM - IMAGE LEFT -->
+    <div class="room-wrapper reveal">
+      <div class="room-card room-layout-left">
+        <div class="room-image-box">
+          <!-- 📍 IMAGE INSERTION POINT #6: SIGNATURE ROOM PHOTO -->
+          <!-- REPLACE the placeholder div below with your image -->
+          <div class="image-placeholder">
+            <i class="fas fa-crown"></i>
+            <span>SIGNATURE ROOM</span>
+            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
+          </div>
+          <!-- WHEN YOU HAVE YOUR IMAGE, REPLACE ABOVE WITH:
+          <div class="room-image-container">
+            <img src="images/signature-room.jpg" alt="Signature Room">
+          </div>
+          -->
+        </div>
+        <div class="room-content-box">
+          <h3 class="room-title">Signature Room</h3>
+          <div class="amenities">
+            <span class="amenity"><i class="fas fa-vector-square"></i> 45 m²</span>
+            <span class="amenity"><i class="fas fa-user-friends"></i> 2 Guests</span>
+            <span class="amenity"><i class="fas fa-bath"></i> Rain Shower</span>
+            <span class="amenity"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
+          </div>
+          <p class="room-description">The Signature Room offers a sanctuary of understated elegance. Floor-to-ceiling windows frame the private garden, while the king-sized bed is dressed in Egyptian cotton.</p>
+          <div class="room-price">GHS 950 <span>/ night</span></div>
+          <button class="btn-book" onclick="window.location.href='mailto:williamotoo672@gmail.com'">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROOM 2: EXECUTIVE ROOM - IMAGE RIGHT -->
+    <div class="room-wrapper reveal">
+      <div class="room-card room-layout-right">
+        <div class="room-image-box">
+          <!-- 📍 IMAGE INSERTION POINT #7: EXECUTIVE ROOM PHOTO -->
+          <div class="image-placeholder">
+            <i class="fas fa-briefcase"></i>
+            <span>EXECUTIVE ROOM</span>
+            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
+          </div>
+        </div>
+        <div class="room-content-box">
+          <h3 class="room-title">Executive Room</h3>
+          <div class="amenities">
+            <span class="amenity"><i class="fas fa-vector-square"></i> 55 m²</span>
+            <span class="amenity"><i class="fas fa-user-friends"></i> 2 Guests</span>
+            <span class="amenity"><i class="fas fa-hot-tub"></i> Deep Soaking Tub</span>
+            <span class="amenity"><i class="fas fa-concierge-bell"></i> Butler Service</span>
+          </div>
+          <p class="room-description">Designed for the discerning business traveler, the Executive Room features a dedicated workspace, espresso bar, and exclusive lounge access.</p>
+          <div class="room-price">GHS 1,250 <span>/ night</span></div>
+          <button class="btn-book" onclick="window.location.href='mailto:williamotoo672@gmail.com'">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROOM 3: DELUXE ROOM - IMAGE LEFT -->
+    <div class="room-wrapper reveal">
+      <div class="room-card room-layout-left">
+        <div class="room-image-box">
+          <!-- 📍 IMAGE INSERTION POINT #8: DELUXE ROOM PHOTO -->
+          <div class="image-placeholder">
+            <i class="fas fa-home"></i>
+            <span>DELUXE ROOM</span>
+            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
+          </div>
+        </div>
+        <div class="room-content-box">
+          <h3 class="room-title">Deluxe Room</h3>
+          <div class="amenities">
+            <span class="amenity"><i class="fas fa-vector-square"></i> 65 m²</span>
+            <span class="amenity"><i class="fas fa-user-friends"></i> 2-3 Guests</span>
+            <span class="amenity"><i class="fas fa-chef-hat"></i> Private Chef</span>
+            <span class="amenity"><i class="fas fa-leaf"></i> Garden View</span>
+          </div>
+          <p class="room-description">The Deluxe Room offers expanded living space with a separate sitting area. Enjoy morning coffee on your private balcony overlooking the serene gardens.</p>
+          <div class="room-price">GHS 1,850 <span>/ night</span></div>
+          <button class="btn-book" onclick="window.location.href='mailto:williamotoo672@gmail.com'">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROOM 4: PREMIUM ROOM - IMAGE RIGHT -->
+    <div class="room-wrapper reveal">
+      <div class="room-card room-layout-right">
+        <div class="room-image-box">
+          <!-- 📍 IMAGE INSERTION POINT #9: PREMIUM ROOM PHOTO -->
+          <div class="image-placeholder">
+            <i class="fas fa-star"></i>
+            <span>PREMIUM ROOM</span>
+            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
+          </div>
+        </div>
+        <div class="room-content-box">
+          <h3 class="room-title">Premium Room</h3>
+          <div class="amenities">
+            <span class="amenity"><i class="fas fa-vector-square"></i> 80 m²</span>
+            <span class="amenity"><i class="fas fa-user-friends"></i> 3 Guests</span>
+            <span class="amenity"><i class="fas fa-wine-bottle"></i> Mini Bar</span>
+            <span class="amenity"><i class="fas fa-champagne-glasses"></i> Welcome Drink</span>
+          </div>
+          <p class="room-description">The Premium Room represents our commitment to exceptional hospitality. Featuring premium linens, a marble bathroom, and personalized turn-down service.</p>
+          <div class="room-price">GHS 2,400 <span>/ night</span></div>
+          <button class="btn-book" onclick="window.location.href='mailto:williamotoo672@gmail.com'">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROOM 5: LUXURY ROOM - IMAGE LEFT -->
+    <div class="room-wrapper reveal">
+      <div class="room-card room-layout-left">
+        <div class="room-image-box">
+          <!-- 📍 IMAGE INSERTION POINT #10: LUXURY ROOM PHOTO -->
+          <div class="image-placeholder">
+            <i class="fas fa-gem"></i>
+            <span>LUXURY ROOM</span>
+            <p style="font-size:0.7rem; margin-top:0.5rem;">⬇️ INSERT LARGE ROOM PHOTO HERE ⬇️</p>
+          </div>
+        </div>
+        <div class="room-content-box">
+          <h3 class="room-title">Luxury Room</h3>
+          <div class="amenities">
+            <span class="amenity"><i class="fas fa-vector-square"></i> 100 m²</span>
+            <span class="amenity"><i class="fas fa-user-friends"></i> 4 Guests</span>
+            <span class="amenity"><i class="fas fa-champagne-glasses"></i> Champagne Service</span>
+            <span class="amenity"><i class="fas fa-car"></i> Airport Transfer</span>
+          </div>
+          <p class="room-description">The pinnacle of Kelnessa hospitality. This expansive suite features a private terrace, separate living and dining areas, marble bathroom with steam shower, and dedicated personal concierge.</p>
+          <div class="room-price">GHS 3,500 <span>/ night</span></div>
+          <button class="btn-book" onclick="window.location.href='mailto:williamotoo672@gmail.com'">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Amenities Slider -->
+<section id="amenities">
+  <div class="section-title reveal">Silent Luxuries</div>
+  <div class="section-sub reveal">CRAFTED FOR THE FEW</div>
+  <div class="swiper amenities-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide amenity-slide"><i class="fas fa-spa"></i><h3>Private Garden Terraces</h3><p>Secluded green courts with native ashanti foliage.</p></div>
+      <div class="swiper-slide amenity-slide"><i class="fas fa-concierge-bell"></i><h3>24H Butler Service</h3><p>Discreet, anticipatory, and meticulously trained staff.</p></div>
+      <div class="swiper-slide amenity-slide"><i class="fas fa-wine-glass-alt"></i><h3>Velvet Cigar Lounge</h3><p>Oak-panelled walls, live piano, rare spirits.</p></div>
+      <div class="swiper-slide amenity-slide"><i class="fas fa-dumbbell"></i><h3>Private Gym & Sauna</h3><p>Cold plunge and personal training available.</p></div>
+      <div class="swiper-slide amenity-slide"><i class="fas fa-book"></i><h3>Library & Writing Room</h3><p>Leather-bound volumes and absolute quiet.</p></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- Review -->
+<section id="review">
+  <div class="section-title reveal">Whispers</div>
+  <div class="section-sub reveal">VERIFIED GUESTS</div>
+  <div class="review-card reveal">
+    <div class="stars">★★★★★</div>
+    <div class="review-text">"It is a very nice place with serene environment and their customer service is top notch. Highly recommend."</div>
+    <div class="reviewer" style="color:#d4af37; margin-top:0.8rem;">— Christopher Manu</div>
+    <div style="margin-top:1rem; font-size:0.7rem; opacity:0.6;">verified stay • 1 week ago</div>
+  </div>
+  <div style="text-align:center; margin-top:1.5rem;"><i class="fas fa-check-circle" style="color:#d4af37;"></i> <span>100% recommendation rate</span></div>
+</section>
+
+<!-- Location -->
+<section id="location">
+  <div class="section-title reveal">Arrival</div>
+  <div class="section-sub reveal">AHANSONYEWODEA, AGYA NSIAH, OBUASI</div>
+  <div class="location-box reveal">
+    <div class="map-placeholder">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>MAP / AERIAL VIEW</p>
+      <!-- 📍 IMAGE INSERTION POINT #11: MAP OR AERIAL PHOTO -->
+    </div>
+    <div class="address">
+      <h3 style="font-size:1.8rem; color:#e8e4df;">A Hidden Throne</h3>
+      <p style="margin:1rem 0; line-height:1.6; color:#c5d5e4;">Nestled in the serene hills of Ahansonyewodea — far from noise, close to the soul of Obuasi. Private transfers upon request.</p>
+      <button class="btn-outline" onclick="alert('Directions sent to your email.')">GET DIRECTIONS</button>
+    </div>
+  </div>
+</section>
+
+<!-- Booking -->
+<section id="booking" style="text-align:center;">
+  <div class="section-title reveal">Reserve Silence</div>
+  <div class="section-sub reveal">LIMITED SUITES AVAILABLE</div>
+  <button class="btn-primary reveal" onclick="window.location.href='mailto:williamotoo672@gmail.com'">REQUEST STAY</button>
+  <p style="margin-top:1.5rem; font-size:0.8rem; color:#d4af37;">williamotoo672@gmail.com</p>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <div class="footer-logo-placeholder">
+      <i class="fas fa-crown"></i>
+      <!-- 📍 IMAGE INSERTION POINT #12: FOOTER LOGO -->
+    </div>
+    <div class="logo-text" style="font-size:1.4rem;">KELNESSA <span>HOTEL</span></div>
+  </div>
+  <p style="margin:0.5rem 0; opacity:0.6;">Serenity carved in silence.</p>
+  <div class="socials"><i class="fab fa-instagram"></i><i class="fab fa-x-twitter"></i><i class="fab fa-facebook-f"></i></div>
+  <p style="margin-top:1.5rem; font-size:0.65rem;">© 2025 KELNESSA HOTEL — Obuasi Private Reserve</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const gallerySwiper = new Swiper('.gallery-swiper', {
+    loop: true, 
+    autoplay: { delay: 5000, disableOnInteraction: false },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    slidesPerView: 1,
+  });
+
+  const amenitiesSwiper = new Swiper('.amenities-swiper', {
+    loop: true, 
+    autoplay: { delay: 4500, disableOnInteraction: false },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    slidesPerView: 1,
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
+  
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+  
+  closeMenu.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+  });
+  
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>
